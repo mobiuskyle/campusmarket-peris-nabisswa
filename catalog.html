@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalog — CampusMarket</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo">CampusMarket</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html" aria-current="page">Catalog</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="catalog-intro">
+      <div class="wrap">
+        <h1>Product catalog</h1>
+        <p>Everything currently listed by students on your campus.</p>
+      </div>
+    </section>
+
+    <section class="filter-bar">
+      <div class="wrap filter-inner">
+        <label for="searchInput" class="visually-hidden">Search products</label>
+        <input type="text" id="searchInput" placeholder="Search by product name...">
+
+        <label for="categorySelect" class="visually-hidden">Filter by category</label>
+        <select id="categorySelect">
+          <option value="all">All categories</option>
+          <option value="books">Books</option>
+          <option value="electronics">Electronics</option>
+          <option value="furniture">Furniture</option>
+          <option value="clothing">Clothing</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="catalog-list">
+      <div class="wrap">
+        <p id="noResults" class="no-results" hidden>No products match your search.</p>
+        <ul id="productList" class="product-list">
+          <!-- product rows are rendered here by app.js -->
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 CampusMarket. A student project for CCS 2314.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
