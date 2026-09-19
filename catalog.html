@@ -28,64 +28,27 @@
       </div>
     </section>
 
+    <section class="filter-bar">
+      <div class="wrap filter-inner">
+        <label for="searchInput" class="visually-hidden">Search products</label>
+        <input type="text" id="searchInput" placeholder="Search by product name...">
+
+        <label for="categorySelect" class="visually-hidden">Filter by category</label>
+        <select id="categorySelect">
+          <option value="all">All categories</option>
+          <option value="books">Books</option>
+          <option value="electronics">Electronics</option>
+          <option value="furniture">Furniture</option>
+          <option value="clothing">Clothing</option>
+        </select>
+      </div>
+    </section>
+
     <section class="catalog-list">
       <div class="wrap">
-        <ul class="product-list">
-
-          <li class="product-row">
-            <article class="product-info">
-              <h2>Used Calculus Textbook (8th Ed.)</h2>
-              <p>Lightly highlighted, all pages intact. Great for MATH 101/102.</p>
-              <span class="product-category">Books</span>
-            </article>
-            <p class="product-price">KES 1,200</p>
-          </li>
-
-          <li class="product-row">
-            <article class="product-info">
-              <h2>Scientific Calculator</h2>
-              <p>Casio fx-991, works perfectly, includes cover.</p>
-              <span class="product-category">Electronics</span>
-            </article>
-            <p class="product-price">KES 1,800</p>
-          </li>
-
-          <li class="product-row">
-            <article class="product-info">
-              <h2>Study Desk Lamp</h2>
-              <p>Adjustable LED lamp, three brightness levels.</p>
-              <span class="product-category">Furniture</span>
-            </article>
-            <p class="product-price">KES 900</p>
-          </li>
-
-          <li class="product-row">
-            <article class="product-info">
-              <h2>Campus Hoodie (Size M)</h2>
-              <p>Worn twice, no stains or tears, machine washable.</p>
-              <span class="product-category">Clothing</span>
-            </article>
-            <p class="product-price">KES 1,500</p>
-          </li>
-
-          <li class="product-row">
-            <article class="product-info">
-              <h2>Mini Fridge</h2>
-              <p>Perfect for a dorm room. Selling because I'm graduating.</p>
-              <span class="product-category">Furniture</span>
-            </article>
-            <p class="product-price">KES 6,500</p>
-          </li>
-
-          <li class="product-row">
-            <article class="product-info">
-              <h2>Wireless Earbuds</h2>
-              <p>Barely used, comes with charging case and spare tips.</p>
-              <span class="product-category">Electronics</span>
-            </article>
-            <p class="product-price">KES 2,200</p>
-          </li>
-
+        <p id="noResults" class="no-results" hidden>No products match your search.</p>
+        <ul id="productList" class="product-list">
+          <!-- product rows are rendered here by app.js -->
         </ul>
       </div>
     </section>
@@ -97,5 +60,6 @@
     </div>
   </footer>
 
+  <script src="app.js"></script>
 </body>
 </html>

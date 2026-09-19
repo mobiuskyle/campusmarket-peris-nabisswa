@@ -1,6 +1,5 @@
-//campus market - qpp.js
-//runs on catalog.html(filtering + quantity calc) and register.html(form validation + password toggle)
-
+// CampusMarket — app.js
+// Runs on catalog.html (filtering + quantity calc)
 const products = [
   {
     id: 1,
@@ -45,27 +44,27 @@ const products = [
     description: "Barely used, comes with charging case and spare tips."
   }
 ];
- 
-// ---- Catalog page: render + filter ---------------------------------------
- 
+
+//  Catalog page: render + filter 
+
 function renderProducts(list) {
   const productList = document.getElementById("productList");
   const noResults = document.getElementById("noResults");
   if (!productList) return; // we are not on catalog.html
- 
+
   productList.innerHTML = "";
- 
+
   // if/else decision: show the "no results" message only when needed
   if (list.length === 0) {
     noResults.hidden = false;
   } else {
     noResults.hidden = true;
   }
- 
+
   // loop through the (already filtered) product list and build each row
   for (let i = 0; i < list.length; i++) {
     const product = list[i];
- 
+
     const row = document.createElement("li");
     row.className = "product-row";
     row.innerHTML = `
@@ -85,46 +84,46 @@ function renderProducts(list) {
     `;
     productList.appendChild(row);
   }
- 
+
   attachQuantityListeners();
 }
- 
+
 function attachQuantityListeners() {
   const qtyInputs = document.querySelectorAll('.qty-block input[type="number"]');
- 
+
   qtyInputs.forEach(function (input) {
     input.addEventListener("input", function () {
       const price = Number(input.dataset.price);
       let quantity = Number(input.value);
- 
+
       // custom rule: never calculate with a zero/negative/invalid quantity
       if (!quantity || quantity < 1) {
         quantity = 1;
       }
- 
+
       const total = price * quantity;
       const totalLabel = document.getElementById("total-" + input.id.split("-")[1]);
       totalLabel.textContent = "Total: KES " + total.toLocaleString();
     });
   });
 }
- 
+
 function filterProducts() {
   const searchInput = document.getElementById("searchInput");
   const categorySelect = document.getElementById("categorySelect");
   if (!searchInput || !categorySelect) return;
- 
+
   const searchTerm = searchInput.value.trim().toLowerCase();
   const selectedCategory = categorySelect.value;
   const filtered = [];
- 
+
   // loop through every product and decide, with if/else, whether it belongs
   for (let i = 0; i < products.length; i++) {
     const product = products[i];
     const matchesSearch = product.name.toLowerCase().includes(searchTerm);
     const matchesCategory =
       selectedCategory === "all" || product.category === selectedCategory;
- 
+
     if (matchesSearch && matchesCategory) {
       filtered.push(product);
     } else {
@@ -132,6 +131,20 @@ function filterProducts() {
       continue;
     }
   }
- 
+
   renderProducts(filtered);
 }
+
+
+ 
+document.addEventListener("DOMContentLoaded", function () {
+  // catalog page
+  renderProducts(products);
+ 
+  const searchInput = document.getElementById("searchInput");
+  const categorySelect = document.getElementById("categorySelect");
+  if (searchInput) searchInput.addEventListener("input", filterProducts);
+  if (categorySelect) categorySelect.addEventListener("change", filterProducts);
+ 
+});
+ 
