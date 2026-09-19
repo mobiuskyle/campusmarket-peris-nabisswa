@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — CampusMarket</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo">CampusMarket</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html">Catalog</a></li>
+          <li><a href="register.html" aria-current="page">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="register-section">
+      <div class="wrap wrap-narrow">
+        <h1>Create your account</h1>
+        <p>Use your campus email so buyers and sellers know you're a real student here.</p>
+
+        <form id="registerForm" novalidate>
+
+          <div class="form-row">
+            <label for="fullName">Full name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="e.g. Jane Mwangi">
+            <p class="error-msg" id="fullNameError"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Campus email</label>
+            <input type="text" id="email" name="email" placeholder="e.g. jane.mwangi@university.ac.ke">
+            <p class="error-msg" id="emailError"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="password">Password</label>
+            <div class="password-field">
+              <input type="password" id="password" name="password" placeholder="At least 8 characters, with a number">
+              <button type="button" id="togglePassword" class="toggle-btn">Show</button>
+            </div>
+            <p class="field-hint">Must be at least 8 characters and include at least one number.</p>
+            <p class="pw-strength" id="passwordStrength" aria-live="polite"></p>
+            <p class="error-msg" id="passwordError"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password">
+            <p class="error-msg" id="confirmPasswordError"></p>
+          </div>
+
+          <p class="error-msg form-error" id="formError" hidden>Please check the fields above and try again.</p>
+
+          <button type="submit" class="btn-primary">Create account</button>
+          <p id="formSuccess" class="success-msg" hidden>Account details look good. Welcome to CampusMarket.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 CampusMarket.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
